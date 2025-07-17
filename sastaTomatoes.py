@@ -1,3 +1,4 @@
+#This file is just the notebook made into a python file 
 import pandas as pd 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -15,8 +16,9 @@ def read_csv_basic(file_name):
         exit(1)
 
 # Read files
-creds = read_csv_basic(r"D:\CODING\Microsoft VS Code\VISUAL STUDIO CODE\Python\ML\Unsupervised Learning\Recommender System\tmdb_5000_credits.csv")
-movs = read_csv_basic(r"D:\CODING\Microsoft VS Code\VISUAL STUDIO CODE\Python\ML\Unsupervised Learning\Recommender System\tmdb_5000_movies.csv")
+creds = read_csv_basic("tmdb_5000_credits.csv")
+movs = read_csv_basic("tmdb_5000_movies.csv")
+#Use absolute file paths while tagging to csv or else gives a file not found error 
 movs=movs.merge(creds,on="title")
 movs= movs[['movie_id','title','overview','genres','keywords','cast','crew','runtime']]
 
