@@ -28,8 +28,9 @@ def read_csv_basic(file_name):
 
 # Load and preprocess TMDB data
 def load_and_preprocess_data():
-    creds = read_csv_basic(r"D:\CODING\Microsoft VS Code\VISUAL STUDIO CODE\Python\ML\Unsupervised Learning\Recommender System\tmdb_5000_credits.csv")
-    movs = read_csv_basic(r"D:\CODING\Microsoft VS Code\VISUAL STUDIO CODE\Python\ML\Unsupervised Learning\Recommender System\tmdb_5000_movies.csv")
+    creds = read_csv_basic(r"tmdb_5000_credits.csv")
+    movs = read_csv_basic(r"tmdb_5000_movies.csv")
+    #Please add the file path for the above two csv files if they do not work with static call
     movs = movs.merge(creds, on="title")
     movs = movs[['movie_id', 'title', 'overview', 'genres', 'keywords', 'cast', 'crew', 'runtime']]
 
@@ -212,3 +213,4 @@ def search_movies():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
